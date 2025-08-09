@@ -14,7 +14,7 @@
   display: flex;
   gap: 20px;
   list-style: none;
-  color: #49557e;
+  color: var(--main-blue);
   font-size: 18px;
 }
 
@@ -32,8 +32,8 @@
 .navbar button{
   background: transparent;
   font-size: 16px;
-  color: #49557e;
-  border: 1px solid orange;
+  color: var(--main-blue);
+  border: 1px solid var(--main-orange);
   padding: 10px 20px;
   border-radius: 50px;
   cursor: pointer;
@@ -41,13 +41,13 @@
 }
 
 .navbar button:hover{
-  background: orange;
+  background: var(--main-orange);
   color: white;
 }
 
 .navbar .active{
   padding-bottom: 2px;
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid var(--main-orange);
 }
 
 .navbar li{
@@ -62,7 +62,7 @@
   position: absolute;
   min-width: 10px;
   min-height: 10px;
-  background-color: orange;
+  background-color: var(--main-orange);
   border-radius: 5px;
   top: -8px;
   right: -8px;
