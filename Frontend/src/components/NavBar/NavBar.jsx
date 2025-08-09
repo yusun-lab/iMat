@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import './NavBar.css'
-import logo from '../../assets/logo.svg';
-import search_icon from '../../assets/search-icon.svg';
-import cart_icon from '../../assets/cart.svg';
+import { assets } from '../../assets/assets'; 
+
 
 const NavBar = () => {
 
@@ -10,7 +9,7 @@ const NavBar = () => {
 
   return (
     <div className='navbar'>
-      <img src={logo} alt="logo" className='logo'/>
+      <img src={assets.logo} alt="logo" className='logo'/>
 
       <ul className="navbar-menu">
         <li onClick={() => setMenuOpen('home')} className={menuOpen==='home'?'active':''}>Home</li>
@@ -19,9 +18,9 @@ const NavBar = () => {
       </ul>
 
       <div className='navbar-right'>
-        <img src={search_icon} alt="search_icon" />
+        <img src={assets.search_icon} alt="search_icon" />
         <div className='navbar-search-icon'>
-          <img src={cart_icon} alt="cart_icon" />
+          <img src={assets.cart_icon} alt="cart_icon" />
           <div className='dot'></div>
         </div>
 
