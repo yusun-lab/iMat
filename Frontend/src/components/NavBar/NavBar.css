@@ -1,16 +1,15 @@
-.navbar{
+.navbar {
   padding: 20px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navbar .logo{
+.navbar .logo {
   width: 150px;
-  color:aqua;
 }
 
-.navbar-menu{
+.navbar-menu {
   display: flex;
   gap: 20px;
   list-style: none;
@@ -18,18 +17,18 @@
   font-size: 18px;
 }
 
-.navbar-right{
+.navbar-right {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.navbar-right img{
+.navbar-right img {
   width: 25px;
   height: 25px;
 }
 
-.navbar button{
+.navbar button {
   background: transparent;
   font-size: 16px;
   color: var(--main-blue);
@@ -40,25 +39,25 @@
   transition: 0.3s;
 }
 
-.navbar button:hover{
+.navbar button:hover {
   background: var(--main-orange);
   color: white;
 }
 
-.navbar .active{
+.navbar .active {
   padding-bottom: 2px;
   border-bottom: 2px solid var(--main-orange);
 }
 
-.navbar li{
+.navbar li {
   cursor: pointer;
 }
 
-.navbar-search-icon{
+.navbar-search-icon {
   position: relative;
 }
 
-.navbar-search-icon .dot{
+.navbar-search-icon .dot {
   position: absolute;
   min-width: 10px;
   min-height: 10px;
