@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 import './FoodItem.css' 
-import { assets } from '../../assets/assets'
-import { PlusIcon } from '../../assets/assets'
-import { MinusIcon } from '../../assets/assets'
+import { assets, PlusIcon, MinusIcon } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 
 
@@ -17,7 +15,7 @@ const FoodItem = ({id, name, price, description, image}) => {
         {!cartItems[id] 
           ? <PlusIcon 
               onClick={() => addToCart(id)} 
-              className='black-plus-icon'
+              className='orange-plus-icon'
             />
           : <div className='food-item-counter'>
               <MinusIcon 

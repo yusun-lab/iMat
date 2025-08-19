@@ -37,11 +37,13 @@
   position: relative; 
 }
 
-.food-item-image-container .black-plus-icon {
+.food-item-image-container .orange-plus-icon {
   position: absolute;
   bottom: 15px;
   right: 15px;
   cursor: pointer;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .food-item-counter {
@@ -51,7 +53,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 5px;
+  padding: 1px;
   border-radius: 50px;
   background-color: white;
 }
