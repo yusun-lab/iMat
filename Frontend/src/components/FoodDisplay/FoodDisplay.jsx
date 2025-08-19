@@ -7,15 +7,20 @@ const FoodDisplay = ({category}) => {
 
   const {food_list} = useContext(StoreContext)
 
+  console.log('Category:', category);
+
+
   const visibleFoods = food_list.filter(item => 
     category === 'All' || category === item.category
   );
+
+  console.log('Visible Foods:', visibleFoods);
 
   return (
     <div className='food-display' id='food-display'>
       <h2>Top dishes near you</h2>
       
-       <div className="food-display-list">
+      <div className="food-display-list">
         {visibleFoods.map(item => (
           <FoodItem
             key={item.id} 
