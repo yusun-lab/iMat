@@ -23,13 +23,13 @@
   font-weight: 500;
   color: white;
   font-size: max(4vw,22px);
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
   text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
 .header-contents p {
   color: white;
   font-size: 2vw;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
 }
 
 .header-contents button {
@@ -39,5 +39,26 @@
   padding: 1vw 2.3vw;
   background-color: white;
   font-size: max(1vw, 13px);
-  border-radius: 30px;
+  border-radius: 50px;
+}
+
+@media (max-width: 1023px) {
+  .header-contents {
+     max-width: 45%;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-contents {
+    max-width: 55%;
+  }
+  
+  .header-contents p {
+    display: none;
+  }
+
+  .header-contents button {
+    padding: 2vw 4vw;
+  }
+
 }
