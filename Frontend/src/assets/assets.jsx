@@ -2,6 +2,8 @@ import logo from './icons/logo.svg'
 import search_icon from './icons/search.svg'
 import cart_icon from './icons/cart.svg'
 import rating_starts from './rating_starts.png'
+import app_store from './app_store.png'
+import play_store from './play_store.png'
 
 import menu_1 from './menuList/menu_1.png'
 import menu_2 from './menuList/menu_2.png'
@@ -52,6 +54,8 @@ export const assets = {
   search_icon,
   cart_icon, 
   rating_starts,
+  app_store,
+  play_store,
 }
 
 export function PlusIcon({ color = 'var(--main-orange)', size = 24, ...props }) {
