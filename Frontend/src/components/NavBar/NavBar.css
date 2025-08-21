@@ -66,3 +66,56 @@
   top: -8px;
   right: -8px;
 }
+
+@media (max-width: 1023px) {
+  .navbar .logo {
+    width: 140px;
+  }
+
+  .navbar-menu {
+    gap: 20px;
+    font-size: 17px;
+  }
+
+  .navbar-right {
+    gap: 15px;
+  }
+
+  .navbar-right img {
+    width: 22px;
+  }
+  
+  .navbar-right button {
+    padding: 8px 16px;
+  }  
+}
+
+@media (max-width: 767px) {
+  .navbar .logo {
+    width: 120px;
+  }
+
+  .navbar-menu {
+    gap: 15px;
+    font-size: 16px;
+  }
+
+  .navbar-right {
+    gap: 12px;
+  }
+
+  .navbar-right img {
+    width: 20px;
+  }
+  
+  .navbar-right button {
+    padding: 7px 15px;
+    font-size: 15px;
+  }  
+}
+
+@media (max-width: 579px) {
+  .navbar-menu {
+    display: none;
+  }
+}
