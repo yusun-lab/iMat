@@ -1,0 +1,83 @@
+.login-popup {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+  display: grid;
+}
+
+.login-popup-container {
+  place-self: center;
+  width: max(23vw, 330px);
+  color: #808080;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px 30px;
+  border-radius: 10px;
+  font-size: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.login-popup-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
+.login-popup-title img {
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+.login-popup-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-popup-inputs input {
+  outline: none;
+  border: 1px solid #c9c9c9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.login-popup-inputs input:focus {
+  border-color: var(--main-orange);
+}
+
+.login-popup-container button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--main-orange);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.login-popup-condition {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  margin-top: -10px;
+}
+
+.login-popup-condition input[type="checkbox"] {
+  margin-top: 4px;
+  accent-color: var(--main-orange);
+}
+
+.login-popup label span {
+  text-decoration: underline; 
+  cursor: pointer;
+}
+
+.login-popup p span {
+  color: var(--main-orange);
+  cursor: pointer;
+}
