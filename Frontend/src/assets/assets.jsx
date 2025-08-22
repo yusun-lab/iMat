@@ -4,6 +4,8 @@ import cart_icon from './icons/cart.svg'
 import rating_starts from './rating_starts.png'
 import app_store from './app_store.png'
 import play_store from './play_store.png'
+import cross_icon from './icons/close-circle-outline.svg'
+
 
 import menu_1 from './menuList/menu_1.png'
 import menu_2 from './menuList/menu_2.png'
@@ -56,6 +58,7 @@ export const assets = {
   rating_starts,
   app_store,
   play_store,
+  cross_icon,
 }
 
 export function PlusIcon({ color = 'var(--main-orange)', size = 24, ...props }) {

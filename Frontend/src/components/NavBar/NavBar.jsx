@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets';
 import { Link } from 'react-router-dom';
 
 
-const NavBar = () => {
+const NavBar = ({toggleLogin}) => {
 
   const [menuOpen, setMenuOpen] = useState('home');
 
@@ -26,7 +26,7 @@ const NavBar = () => {
           <div className='dot'></div>
         </div>
 
-        <button>Sign in</button>
+        <button onClick={()=>toggleLogin (true)}>Sign in</button>
       </div>
     </div>
   )
