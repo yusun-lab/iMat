@@ -1,14 +1,16 @@
-import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useMemo, useState } from 'react';
 import { food_list } from '../assets/assets'
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
 
-  const [cartItems, setCartItems] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem('cart')) || {};
-    } catch { return {}; }
+  const [cartItems, setCartItems] = useState(
+    // () => 
+  {
+    // try {
+    //   return JSON.parse(localStorage.getItem('cart')) || {};
+    // } catch { return {}; }
   });
 
   const addToCart = useCallback((itemID) => {
@@ -26,9 +28,20 @@ const StoreContextProvider = (props) => {
     });
   }, []);
 
-  useEffect(() => {
-    console.log('Cart items updated:', cartItems); 
-    localStorage.setItem('cart', JSON.stringify(cartItems));   
+  // useEffect(() => {
+  //   console.log('Cart items updated:', cartItems); 
+  //   localStorage.setItem('cart', JSON.stringify(cartItems));   
+  // }, [cartItems]);
+
+  const getTotalCartAmount = useCallback(() => {
+    let totalAmount = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = food_list.find((food) => food.id === item);
+        totalAmount += itemInfo.price * cartItems[item];
+      }
+    }
+    return totalAmount;
   }, [cartItems]);
 
   const contextValue = useMemo(() => ({
@@ -36,8 +49,9 @@ const StoreContextProvider = (props) => {
     cartItems, 
     setCartItems, 
     addToCart, 
-    removeFromCart
-  }), [cartItems, addToCart, removeFromCart]);
+    removeFromCart,
+    getTotalCartAmount,
+  }), [cartItems, addToCart, removeFromCart, getTotalCartAmount]);
   
   return (
     <StoreContext.Provider value={contextValue}>
