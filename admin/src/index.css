@@ -7,6 +7,11 @@
   font-family: Outfit, sans-serif;
 }
 
+:root {
+  --main-orange: darkorange;
+  --main-blue: #49557e;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -16,4 +21,8 @@ hr {
   border: none;
   height: 1px;
   background-color: #a9a9a9;
+}
+
+.app-content {
+  display: flex;
 }
