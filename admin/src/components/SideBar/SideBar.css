@@ -39,4 +39,9 @@
 .side-bar-option:hover {
   background-color: var(--main-orange);
   color: white;
+  border: none;
+}
+
+.side-bar-option:hover img {
+  filter: brightness(0) invert(1);
 }
