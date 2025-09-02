@@ -1,0 +1,70 @@
+.add-items-page {
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #6d6d6d;
+}
+
+.add-items-page form {
+  gap: 20px;
+}
+
+.add-upload-image img {
+  width: 150px;
+}
+
+.add-food-name,
+.add-food-description {
+  width: max(40%, 500px);
+}
+
+.add-food-name input,
+.add-food-description textarea {
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.add-food-name input:focus,
+.add-food-description textarea:focus {
+  border-color: var(--main-orange);
+  outline: none;
+}
+
+.add-category-price {
+  display: flex;
+  gap: 30px;
+}
+
+.add-category-price select,
+.add-category-price input {
+  max-width: 150px;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.add-category-price select:focus,
+.add-category-price input:focus {
+  border-color: var(--main-orange);
+  outline: none;
+}
+
+.add-item-btn {
+  max-width: 120px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-item-btn:hover {
+  background-color: var(--main-orange);
+}

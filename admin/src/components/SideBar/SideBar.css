@@ -30,18 +30,18 @@
   cursor: pointer;
 }
 
-@media (max-width: 767px) {
-  .side-bar-option p {
-    display: none;
-  }
-}
-
-.side-bar-option:hover {
+.side-bar-option.active {
   background-color: var(--main-orange);
   color: white;
   border: none;
 }
 
-.side-bar-option:hover img {
+.side-bar-option.active img {
   filter: brightness(0) invert(1);
+}
+
+@media (max-width: 767px) {
+  .side-bar-option p {
+    display: none;
+  }
 }

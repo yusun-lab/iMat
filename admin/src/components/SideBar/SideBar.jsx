@@ -8,7 +8,7 @@ const SideBar = () => {
     <div className="side-bar">
       <div className="side-bar-options">
         <NavLink to="/add-items" className="side-bar-option">
-          <img src={assets.addIcon} alt="add icon" />
+          <img src={assets.addItemsIcon} alt="add icon" />
           <p>Add Items</p>
         </NavLink>
 
