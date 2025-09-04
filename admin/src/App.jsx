@@ -5,6 +5,8 @@ import { Route, Routes } from "react-router-dom";
 import AddItems from "./pages/AddItems/AddItems";
 import ListItems from "./pages/ListItems/ListItems";
 import Orders from "./pages/Orders/Orders";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
           <Route path="/orders" element={<Orders />} />
         </Routes>
       </div>
+      <ToastContainer />
     </div>
   );
 };
