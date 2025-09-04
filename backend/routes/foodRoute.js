@@ -3,20 +3,41 @@ import {
   addFood,
   foodList,
   deleteFood,
-} from "../controllers/foodController.js";
+} from "../controllers/FoodController.js";
 import multer from "multer";
+import path from "path";
 
 const foodRouter = express.Router();
 
-// Image Storage Engine
-
+// Multer storage config
 const storage = multer.diskStorage({
-  destination: "uploads/",
+  destination: (req, file, cb) => {
+    cb(null, path.resolve("uploads"));
+  },
   filename: (req, file, cb) => {
-    return cb(null, `${Date.now()}${file.originalname}`);
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/jpg",
+      "image/gif",
+      "image/bmp",
+      "image/webp",
+      "image/svg+xml",
+    ];
+    if (!allowedTypes.includes(file.mimetype)) {
+      return cb(
+        new Error(
+          "Only .jpg, .jpeg, .png, .gif, .bmp, .webp, .svg files are allowed"
+        )
+      );
+    }
+
+    const uniqueName = `${Date.now()}-${file.originalname}`;
+    cb(null, uniqueName);
   },
 });
 
+// Routes
 const upload = multer({ storage: storage });
 
 foodRouter.post("/add", upload.single("image"), addFood);
