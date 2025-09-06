@@ -7,27 +7,47 @@ const ListItems = () => {
   const apiUrl = "http://localhost:4000";
 
   const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchList = async () => {
-    const response = await axios.get(`${apiUrl}/api/food/list`);
-
-    // console.log(response.data);
-
-    if (response.data.success) {
-      setList(response.data.data);
-    } else {
-      toast.error("Error");
+    try {
+      setLoading(true);
+      const response = await axios.get(`${apiUrl}/api/food/list`);
+      if (response.data.success) {
+        setList(response.data.data);
+      } else {
+        toast.error(response.data.message || "Error fetching list");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Network error while fetching list");
+    } finally {
+      setLoading(false);
     }
   };
 
   const removeFood = async (foodId) => {
-    // console.log(foodId);
-    const response = await axios.delete(`${apiUrl}/api/food/delete/${foodId}`);
-    await fetchList();
-    if (response.data.success) {
-      toast.success(response.data.message);
-    } else {
-      toast.error("Error");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this food?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      setLoading(true);
+      const response = await axios.delete(
+        `${apiUrl}/api/food/delete/${foodId}`
+      );
+      if (response.data.success) {
+        toast.success(response.data.message);
+        await fetchList();
+      } else {
+        toast.error(response.data.message || "Failed to delete food");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Network error while deleting food");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -39,18 +59,20 @@ const ListItems = () => {
     <div className="list add flex-column">
       <p>List of All Foods</p>
 
+      {loading && <p>Loading...</p>}
+
       <div className="list-table">
         <div className="list-table-format title">
           <b>Image</b>
           <b>Name</b>
           <b>Category</b>
-          <b>Price</b>
+          <b>Price (SEK)</b>
           <b>Action</b>
         </div>
 
-        {list.map((item, index) => {
+        {list.map((item) => {
           return (
-            <div key={index} className="list-table-format">
+            <div key={item._id} className="list-table-format">
               <img src={`${apiUrl}/images/` + item.image} alt="" />
               <p>{item.name}</p>
               <p>{item.category}</p>
