@@ -61,7 +61,7 @@ const foodList = async (req, res) => {
 // Delete food item
 const deleteFood = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
 
     if (!id) {
       return res

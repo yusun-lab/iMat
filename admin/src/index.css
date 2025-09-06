@@ -12,6 +12,10 @@
   --main-blue: #49557e;
 }
 
+body {
+  min-height: 100vh;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -31,4 +35,8 @@ hr {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.cursor {
+  cursor: pointer;
 }

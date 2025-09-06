@@ -44,6 +44,6 @@ foodRouter.post("/add", upload.single("image"), addFood);
 
 foodRouter.get("/list", foodList);
 
-foodRouter.delete("/delete/", deleteFood);
+foodRouter.delete("/delete/:id", deleteFood);
 
 export default foodRouter;
