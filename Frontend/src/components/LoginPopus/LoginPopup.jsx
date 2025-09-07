@@ -1,39 +1,58 @@
-import React, { useState } from 'react'
-import './LoginPopup.css'
-import { assets } from '../../assets/assets';
+import React, { useState } from "react";
+import "./LoginPopup.css";
+import { assets } from "../../assets/assets";
 
-const LoginPopus = ({toggleLogin}) => {
-
-  const [currentState, setCurrentState] = useState('Login')
+const LoginPopus = ({ toggleLogin }) => {
+  const [currentState, setCurrentState] = useState("Login");
 
   return (
-    <div className='login-popup'>
+    <div className="login-popup">
       <form className="login-popup-container">
         <div className="login-popup-title">
           <h2>{currentState}</h2>
-          <img  onClick={() => toggleLogin (false) } src={assets.cross_icon} alt="close login popup" />
+          <img
+            onClick={() => toggleLogin(false)}
+            src={assets.crossIcon}
+            alt="close login popup"
+          />
         </div>
 
         <div className="login-popup-inputs">
-          {currentState === 'Login' ? <></> : <input type="text" placeholder='Your name' required />}
-          <input type="email" placeholder='Your email' required />
-          <input type="password" placeholder='Password' required />
+          {currentState === "Login" ? (
+            <></>
+          ) : (
+            <input type="text" placeholder="Your name" required />
+          )}
+          <input type="email" placeholder="Your email" required />
+          <input type="password" placeholder="Password" required />
         </div>
 
-        <button>{currentState==='Sign up' ? 'Create account' : 'Login'}</button>
+        <button>
+          {currentState === "Sign up" ? "Create account" : "Login"}
+        </button>
 
         <div className="login-popup-condition">
           <input type="checkbox" required />
-          <label>I agree to the <span>Terms & Conditions</span> and <span>Privacy Policy</span></label>
+          <label>
+            I agree to the <span>Terms & Conditions</span> and{" "}
+            <span>Privacy Policy</span>
+          </label>
         </div>
-        
-        { currentState === 'Login' 
-          ? <p>Create a new account? <span onClick={() => setCurrentState('Sign Up')}>Click here</span></p> 
-          : <p>Already have an account? <span onClick={() => setCurrentState('Login')}>Login here</span></p>
-        }
+
+        {currentState === "Login" ? (
+          <p>
+            Create a new account?{" "}
+            <span onClick={() => setCurrentState("Sign Up")}>Click here</span>
+          </p>
+        ) : (
+          <p>
+            Already have an account?{" "}
+            <span onClick={() => setCurrentState("Login")}>Login here</span>
+          </p>
+        )}
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPopus
+export default LoginPopus;

@@ -1,63 +1,65 @@
 import logo from "./icons/logo.svg";
-import search_icon from "./icons/search.svg";
-import cart_icon from "./icons/cart.svg";
-import rating_starts from "./rating_starts.png";
-import app_store from "./app_store.png";
-import play_store from "./play_store.png";
-import cross_icon from "./icons/close-circle-outline.svg";
+import searchIcon from "./icons/search.svg";
+import cartIcon from "./icons/cart.svg";
+import ratingStars from "./rating_stars.png";
+import appStore from "./app_Store.png";
+import playStore from "./play_Store.png";
+import crossIcon from "./icons/close-circle-outline.svg";
 
-import menu_1 from "./menuList/menu_1.png";
-import menu_2 from "./menuList/menu_2.png";
-import menu_3 from "./menuList/menu_3.png";
-import menu_4 from "./menuList/menu_4.png";
-import menu_5 from "./menuList/menu_5.png";
-import menu_6 from "./menuList/menu_6.png";
-import menu_7 from "./menuList/menu_7.png";
-import menu_8 from "./menuList/menu_8.png";
+// Menu images
+import menu1Img from "./menuList/menu_1.png";
+import menu2Img from "./menuList/menu_2.png";
+import menu3Img from "./menuList/menu_3.png";
+import menu4Img from "./menuList/menu_4.png";
+import menu5Img from "./menuList/menu_5.png";
+import menu6Img from "./menuList/menu_6.png";
+import menu7Img from "./menuList/menu_7.png";
+import menu8Img from "./menuList/menu_8.png";
 
-import food_1 from "./foodList/food_1.png";
-import food_2 from "./foodList/food_2.png";
-import food_3 from "./foodList/food_3.png";
-import food_4 from "./foodList/food_4.png";
-import food_5 from "./foodList/food_5.png";
-import food_6 from "./foodList/food_6.png";
-import food_7 from "./foodList/food_7.png";
-import food_8 from "./foodList/food_8.png";
-import food_9 from "./foodList/food_9.png";
-import food_10 from "./foodList/food_10.png";
-import food_11 from "./foodList/food_11.png";
-import food_12 from "./foodList/food_12.png";
-import food_13 from "./foodList/food_13.png";
-import food_14 from "./foodList/food_14.png";
-import food_15 from "./foodList/food_15.png";
-import food_16 from "./foodList/food_16.png";
-import food_17 from "./foodList/food_17.png";
-import food_18 from "./foodList/food_18.png";
-import food_19 from "./foodList/food_19.png";
-import food_20 from "./foodList/food_20.png";
-import food_21 from "./foodList/food_21.png";
-import food_22 from "./foodList/food_22.png";
-import food_23 from "./foodList/food_23.png";
-import food_24 from "./foodList/food_24.png";
-import food_25 from "./foodList/food_25.png";
-import food_26 from "./foodList/food_26.png";
-import food_27 from "./foodList/food_27.png";
-import food_28 from "./foodList/food_28.png";
-import food_29 from "./foodList/food_29.png";
-import food_30 from "./foodList/food_30.png";
-import food_31 from "./foodList/food_31.png";
-import food_32 from "./foodList/food_32.png";
+// Food images
+import food1Img from "./foodList/food_1.png";
+import food2Img from "./foodList/food_2.png";
+import food3Img from "./foodList/food_3.png";
+import food4Img from "./foodList/food_4.png";
+import food5Img from "./foodList/food_5.png";
+import food6Img from "./foodList/food_6.png";
+import food7Img from "./foodList/food_7.png";
+import food8Img from "./foodList/food_8.png";
+import food9Img from "./foodList/food_9.png";
+import food10Img from "./foodList/food_10.png";
+import food11Img from "./foodList/food_11.png";
+import food12Img from "./foodList/food_12.png";
+import food13Img from "./foodList/food_13.png";
+import food14Img from "./foodList/food_14.png";
+import food15Img from "./foodList/food_15.png";
+import food16Img from "./foodList/food_16.png";
+import food17Img from "./foodList/food_17.png";
+import food18Img from "./foodList/food_18.png";
+import food19Img from "./foodList/food_19.png";
+import food20Img from "./foodList/food_20.png";
+import food21Img from "./foodList/food_21.png";
+import food22Img from "./foodList/food_22.png";
+import food23Img from "./foodList/food_23.png";
+import food24Img from "./foodList/food_24.png";
+import food25Img from "./foodList/food_25.png";
+import food26Img from "./foodList/food_26.png";
+import food27Img from "./foodList/food_27.png";
+import food28Img from "./foodList/food_28.png";
+import food29Img from "./foodList/food_29.png";
+import food30Img from "./foodList/food_30.png";
+import food31Img from "./foodList/food_31.png";
+import food32Img from "./foodList/food_32.png";
 
 // ——————————————————————————————————————————
 
 export const assets = {
   logo,
-  search_icon,
-  cart_icon,
-  rating_starts,
-  app_store,
-  play_store,
-  cross_icon,
+  searchIcon,
+  cartIcon,
+  ratingStars,
+  appStore,
+  playStore,
+  crossIcon,
 };
 
 export function PlusIcon({
@@ -130,46 +132,46 @@ export function FacebookIcon({ color = "#1877F2", size = 40, ...props }) {
   );
 }
 
-export const menu_list = [
+export const menuList = [
   {
-    menu_name: "Salad",
-    menu_image: menu_1,
+    menuName: "Salad",
+    menuImage: menu1Img,
   },
   {
-    menu_name: "Rolls",
-    menu_image: menu_2,
+    menuName: "Rolls",
+    menuImage: menu2Img,
   },
   {
-    menu_name: "Deserts",
-    menu_image: menu_3,
+    menuName: "Deserts",
+    menuImage: menu3Img,
   },
   {
-    menu_name: "Sandwich",
-    menu_image: menu_4,
+    menuName: "Sandwich",
+    menuImage: menu4Img,
   },
   {
-    menu_name: "Cake",
-    menu_image: menu_5,
+    menuName: "Cake",
+    menuImage: menu5Img,
   },
   {
-    menu_name: "Pure Veg",
-    menu_image: menu_6,
+    menuName: "Pure Veg",
+    menuImage: menu6Img,
   },
   {
-    menu_name: "Pasta",
-    menu_image: menu_7,
+    menuName: "Pasta",
+    menuImage: menu7Img,
   },
   {
-    menu_name: "Noodles",
-    menu_image: menu_8,
+    menuName: "Noodles",
+    menuImage: menu8Img,
   },
 ];
 
-export const food_list = [
+export const foodList = [
   {
     id: "1",
     name: "Greek salad",
-    image: food_1,
+    image: food1Img,
     price: 80,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -178,7 +180,7 @@ export const food_list = [
   {
     id: "2",
     name: "Veg salad",
-    image: food_2,
+    image: food2Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -187,7 +189,7 @@ export const food_list = [
   {
     id: "3",
     name: "Clover Salad",
-    image: food_3,
+    image: food3Img,
     price: 70,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -196,7 +198,7 @@ export const food_list = [
   {
     id: "4",
     name: "Chicken Salad",
-    image: food_4,
+    image: food4Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -205,7 +207,7 @@ export const food_list = [
   {
     id: "5",
     name: "Lasagna Rolls",
-    image: food_5,
+    image: food5Img,
     price: 80,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -214,7 +216,7 @@ export const food_list = [
   {
     id: "6",
     name: "Peri Peri Rolls",
-    image: food_6,
+    image: food6Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -223,7 +225,7 @@ export const food_list = [
   {
     id: "7",
     name: "Chicken Rolls",
-    image: food_7,
+    image: food7Img,
     price: 90,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -232,7 +234,7 @@ export const food_list = [
   {
     id: "8",
     name: "Veg Rolls",
-    image: food_8,
+    image: food8Img,
     price: 90,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -241,7 +243,7 @@ export const food_list = [
   {
     id: "9",
     name: "Ripple Ice Cream",
-    image: food_9,
+    image: food9Img,
     price: 70,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -250,7 +252,7 @@ export const food_list = [
   {
     id: "10",
     name: "Fruit Ice Cream",
-    image: food_10,
+    image: food10Img,
     price: 90,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -259,7 +261,7 @@ export const food_list = [
   {
     id: "11",
     name: "Jar Ice Cream",
-    image: food_11,
+    image: food11Img,
     price: 80,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -268,7 +270,7 @@ export const food_list = [
   {
     id: "12",
     name: "Vanilla Ice Cream",
-    image: food_12,
+    image: food12Img,
     price: 80,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -277,7 +279,7 @@ export const food_list = [
   {
     id: "13",
     name: "Chicken Sandwich",
-    image: food_13,
+    image: food13Img,
     price: 90,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -286,7 +288,7 @@ export const food_list = [
   {
     id: "14",
     name: "Vegan Sandwich",
-    image: food_14,
+    image: food14Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -295,7 +297,7 @@ export const food_list = [
   {
     id: "15",
     name: "Grilled Sandwich",
-    image: food_15,
+    image: food15Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -304,7 +306,7 @@ export const food_list = [
   {
     id: "16",
     name: "Bread Sandwich",
-    image: food_16,
+    image: food16Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -313,7 +315,7 @@ export const food_list = [
   {
     id: "17",
     name: "Cup Cake",
-    image: food_17,
+    image: food17Img,
     price: 70,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -322,7 +324,7 @@ export const food_list = [
   {
     id: "18",
     name: "Vegan Cake",
-    image: food_18,
+    image: food18Img,
     price: 90,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -331,7 +333,7 @@ export const food_list = [
   {
     id: "19",
     name: "Butterscotch Cake",
-    image: food_19,
+    image: food19Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -340,7 +342,7 @@ export const food_list = [
   {
     id: "20",
     name: "Sliced Cake",
-    image: food_20,
+    image: food20Img,
     price: 80,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -349,7 +351,7 @@ export const food_list = [
   {
     id: "21",
     name: "Garlic Mushroom ",
-    image: food_21,
+    image: food21Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -358,7 +360,7 @@ export const food_list = [
   {
     id: "22",
     name: "Fried Cauliflower",
-    image: food_22,
+    image: food22Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -367,7 +369,7 @@ export const food_list = [
   {
     id: "23",
     name: "Mix Veg Pulao",
-    image: food_23,
+    image: food23Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -376,7 +378,7 @@ export const food_list = [
   {
     id: "24",
     name: "Rice Zucchini",
-    image: food_24,
+    image: food24Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -385,7 +387,7 @@ export const food_list = [
   {
     id: "25",
     name: "Cheese Pasta",
-    image: food_25,
+    image: food25Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -394,7 +396,7 @@ export const food_list = [
   {
     id: "26",
     name: "Tomato Pasta",
-    image: food_26,
+    image: food26Img,
     price: 90,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -403,7 +405,7 @@ export const food_list = [
   {
     id: "27",
     name: "Creamy Pasta",
-    image: food_27,
+    image: food27Img,
     price: 90,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -412,7 +414,7 @@ export const food_list = [
   {
     id: "28",
     name: "Chicken Pasta",
-    image: food_28,
+    image: food28Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -421,7 +423,7 @@ export const food_list = [
   {
     id: "29",
     name: "Buttter Noodles",
-    image: food_29,
+    image: food29Img,
     price: 100,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -430,7 +432,7 @@ export const food_list = [
   {
     id: "30",
     name: "Veg Noodles",
-    image: food_30,
+    image: food30Img,
     price: 110,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -439,7 +441,7 @@ export const food_list = [
   {
     id: "31",
     name: "Somen Noodles",
-    image: food_31,
+    image: food31Img,
     price: 110,
     description:
       "Food provides essential nutrients for overall health and well-being",
@@ -448,7 +450,7 @@ export const food_list = [
   {
     id: "32",
     name: "Cooked Noodles",
-    image: food_32,
+    image: food32Img,
     price: 110,
     description:
       "Food provides essential nutrients for overall health and well-being",
