@@ -1,5 +1,11 @@
-import { createContext, useCallback, useMemo, useState } from "react";
-import { foodList } from "../assets/assets";
+import {
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import axios from "axios";
 
 export const StoreContext = createContext(null);
 
@@ -16,6 +22,8 @@ const StoreContextProvider = (props) => {
   const url = "http://localhost:4000";
 
   const [token, setToken] = useState(localStorage.getItem("token") || "");
+
+  const [foodList, setFoodList] = useState([]);
 
   const addToCart = useCallback((itemID) => {
     setCartItems((prev) => ({ ...prev, [itemID]: (prev[itemID] || 0) + 1 }));
@@ -41,12 +49,36 @@ const StoreContextProvider = (props) => {
     let totalAmount = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = foodList.find((food) => food.id === item);
+        let itemInfo = foodList.find((food) => food._id === item);
         totalAmount += itemInfo.price * cartItems[item];
       }
     }
     return totalAmount;
-  }, [cartItems]);
+  }, [cartItems, foodList]);
+
+  useEffect(() => {
+    let isMounted = true; // Flag to prevent state updates if component is unmounted
+
+    const fetchFoodList = async () => {
+      try {
+        // Fetch the food list from the backend API
+        const response = await axios.get(`${url}/api/food/list`);
+        if (isMounted) {
+          // Update state only if component is still mounted
+          setFoodList(response.data.data || []);
+        }
+      } catch (error) {
+        console.error("Failed to fetch food list:", error);
+      }
+    };
+
+    fetchFoodList();
+
+    // Cleanup function runs when component unmounts
+    return () => {
+      isMounted = false;
+    };
+  }, [url]);
 
   const contextValue = useMemo(
     () => ({
@@ -60,7 +92,7 @@ const StoreContextProvider = (props) => {
       token,
       setToken,
     }),
-    [cartItems, addToCart, removeFromCart, getTotalCartAmount, token]
+    [cartItems, addToCart, removeFromCart, getTotalCartAmount, token, foodList]
   );
 
   return (

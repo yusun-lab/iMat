@@ -21,8 +21,8 @@ const FoodDisplay = ({ category }) => {
       <div className="food-display-list">
         {visibleFoods.map((item) => (
           <FoodItem
-            key={item.id}
-            id={item.id}
+            key={item._id}
+            id={item._id}
             name={item.name}
             price={item.price}
             description={item.description}

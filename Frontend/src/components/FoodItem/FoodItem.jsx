@@ -4,12 +4,18 @@ import { assets, PlusIcon, MinusIcon } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  const { cartItems, addToCart, removeFromCart, url } =
+    useContext(StoreContext);
 
   return (
     <div className="food-item">
       <div className="food-item-image-container">
-        <img src={image} alt={name} className="food-item-image" />
+        <img
+          src={url + "/images/" + image} //Go to the uploads folder on your backend server, find this image, and display it.
+          alt={name}
+          className="food-item-image"
+        />
+
         {!cartItems[id] ? (
           <PlusIcon
             onClick={() => addToCart(id)}
