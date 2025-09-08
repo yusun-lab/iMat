@@ -73,11 +73,30 @@
 }
 
 .login-popup label span {
-  text-decoration: underline; 
+  text-decoration: underline;
   cursor: pointer;
 }
 
 .login-popup p span {
   color: var(--main-orange);
   cursor: pointer;
+}
+
+.password-filed {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.password-filed input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
 }

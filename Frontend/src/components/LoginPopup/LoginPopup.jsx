@@ -14,6 +14,8 @@ const LoginPopup = ({ toggleLogin }) => {
     password: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -33,14 +35,24 @@ const LoginPopup = ({ toggleLogin }) => {
       newUrl += "/api/user/register";
     }
 
-    const response = await axios.post(newUrl, data);
+    try {
+      const response = await axios.post(newUrl, data);
 
-    if (response.data.success) {
-      setToken(response.data.token);
-      localStorage.setItem("token", response.data.token);
-      toggleLogin(false);
-    } else {
-      alert(response.data.message);
+      if (response.data.success) {
+        setToken(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        toggleLogin(false);
+      } else {
+        // Backend returned success: false
+        alert(response.data.message);
+      }
+    } catch (error) {
+      // Catch network errors or non-2xx responses from backend
+      if (error.response && error.response.data) {
+        alert(error.response.data.message);
+      } else {
+        alert("Network error or server not responding");
+      }
     }
   };
 
@@ -79,14 +91,23 @@ const LoginPopup = ({ toggleLogin }) => {
             required
           />
 
-          <input
-            name="password"
-            onChange={onChangeHandler}
-            value={data.password}
-            type="password"
-            placeholder="Password"
-            required
-          />
+          <div className="password-filed">
+            <input
+              name="password"
+              onChange={onChangeHandler}
+              value={data.password}
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              required
+            />
+
+            <span
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </span>
+          </div>
         </div>
 
         <button type="submit">

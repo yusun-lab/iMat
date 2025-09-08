@@ -1,13 +1,25 @@
 import React, { useContext, useState } from "react";
 import "./NavBar.css";
 import { assets } from "../../assets/assets";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
 const NavBar = ({ toggleLogin }) => {
   const [menuOpen, setMenuOpen] = useState("home");
 
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+
+    if (confirmLogout) {
+      localStorage.removeItem("token");
+      setToken("");
+      navigate("/");
+    }
+  };
 
   return (
     <div className="navbar">
@@ -48,14 +60,34 @@ const NavBar = ({ toggleLogin }) => {
 
       <div className="navbar-right">
         <img src={assets.searchIcon} alt="searchIcon" />
-        <div className="navbar-search-icon">
+        <div className="navbar-cart-icon">
           <Link to="/cart">
-            <img src={assets.cartIcon} alt="cartIcon" />
+            <img src={assets.cartIcon} alt="cart Icon" />
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
 
-        <button onClick={() => toggleLogin(true)}>Sign in</button>
+        {!token ? (
+          <button onClick={() => toggleLogin(true)}>Sign in</button>
+        ) : (
+          <div className="navbar-profile">
+            <img src={assets.profileIcon} alt="" />
+
+            <ul className="navbar-profile-dropdown">
+              <li>
+                <img src={assets.orderIcon} alt="" />
+                <p>Orders</p>
+              </li>
+
+              <hr />
+
+              <li onClick={logout}>
+                <img src={assets.logoutIcon} alt="" />
+                <p>Logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import appStore from "./app-store.png";
 import playStore from "./play-store.png";
 import crossIcon from "./icons/close-circle-outline.svg";
 import profileIcon from "./icons/profile.svg";
+import orderIcon from "./icons/order.svg";
 import logoutIcon from "./icons/logout.svg";
 
 // Menu images
@@ -63,6 +64,7 @@ export const assets = {
   playStore,
   crossIcon,
   profileIcon,
+  orderIcon,
   logoutIcon,
 };
 
