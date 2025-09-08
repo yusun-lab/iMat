@@ -1,10 +1,12 @@
 import logo from "./icons/logo.svg";
 import searchIcon from "./icons/search.svg";
 import cartIcon from "./icons/cart.svg";
-import ratingStars from "./rating_stars.png";
-import appStore from "./app_Store.png";
-import playStore from "./play_Store.png";
+import ratingStars from "./rating-stars.png";
+import appStore from "./app-store.png";
+import playStore from "./play-store.png";
 import crossIcon from "./icons/close-circle-outline.svg";
+import profileIcon from "./icons/profile.svg";
+import logoutIcon from "./icons/logout.svg";
 
 // Menu images
 import menu1Img from "./menuList/menu_1.png";
@@ -60,6 +62,8 @@ export const assets = {
   appStore,
   playStore,
   crossIcon,
+  profileIcon,
+  logoutIcon,
 };
 
 export function PlusIcon({

@@ -13,6 +13,10 @@ const StoreContextProvider = (props) => {
     }
   );
 
+  const url = "http://localhost:4000";
+
+  const [token, setToken] = useState("");
+
   const addToCart = useCallback((itemID) => {
     setCartItems((prev) => ({ ...prev, [itemID]: (prev[itemID] || 0) + 1 }));
   }, []);
@@ -52,8 +56,11 @@ const StoreContextProvider = (props) => {
       addToCart,
       removeFromCart,
       getTotalCartAmount,
+      url,
+      token,
+      setToken,
     }),
-    [cartItems, addToCart, removeFromCart, getTotalCartAmount]
+    [cartItems, addToCart, removeFromCart, getTotalCartAmount, token]
   );
 
   return (
