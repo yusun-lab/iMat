@@ -1,3 +1,4 @@
+import { error } from "console";
 import foodModel from "../models/FoodModel.js";
 import fs from "fs";
 import path from "path";
@@ -80,7 +81,7 @@ const deleteFood = async (req, res) => {
     if (food.image) {
       const imagePath = path.join("uploads", food.image);
       fs.unlink(imagePath, (err) => {
-        if (err) console.warn("Image deletion error:", err);
+        if (error) console.warn("Image deletion error:", error);
       });
     }
 

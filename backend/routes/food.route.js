@@ -3,7 +3,7 @@ import {
   addFood,
   foodList,
   deleteFood,
-} from "../controllers/FoodController.js";
+} from "../controllers/food.controller.js";
 import multer from "multer";
 import path from "path";
 
