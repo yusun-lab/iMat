@@ -24,7 +24,7 @@ const ListItems = ({ url }) => {
     }
   };
 
-  const removeFood = async (foodId) => {
+  const deleteFood = async (foodId) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this food?"
     );
@@ -73,7 +73,7 @@ const ListItems = ({ url }) => {
               <p>{item.name}</p>
               <p>{item.category}</p>
               <p>{item.price}</p>
-              <p onClick={() => removeFood(item._id)} className="cursor">
+              <p onClick={() => deleteFood(item._id)} className="cursor">
                 x
               </p>
             </div>

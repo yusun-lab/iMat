@@ -4,7 +4,7 @@ import { assets, PlusIcon, MinusIcon } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart, url } =
+  const { cartItems, addToCart, deleteFromCart, url } =
     useContext(StoreContext);
 
   return (
@@ -23,7 +23,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
           />
         ) : (
           <div className="food-item-counter">
-            <MinusIcon onClick={() => removeFromCart(id)} />
+            <MinusIcon onClick={() => deleteFromCart(id)} />
             <p>{cartItems[id]}</p>
             <PlusIcon
               onClick={() => addToCart(id)}

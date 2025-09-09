@@ -25,20 +25,43 @@ const StoreContextProvider = (props) => {
 
   const [foodList, setFoodList] = useState([]);
 
-  const addToCart = useCallback((itemID) => {
-    setCartItems((prev) => ({ ...prev, [itemID]: (prev[itemID] || 0) + 1 }));
-  }, []);
+  const addToCart = useCallback(
+    async (itemId) => {
+      setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
 
-  const removeFromCart = useCallback((itemID) => {
-    setCartItems((prev) => {
-      const next = (prev[itemID] || 0) - 1;
-      if (next <= 0) {
-        const { [itemID]: _, ...rest } = prev;
-        return rest;
+      if (token) {
+        axios.post(url + "/api/cart/add", { itemId }, { headers: { token } });
       }
-      return { ...prev, [itemID]: next };
-    });
-  }, []);
+    },
+    [token]
+  );
+
+  const deleteFromCart = useCallback(
+    async (itemId) => {
+      setCartItems((prev) => {
+        const next = (prev[itemId] || 0) - 1;
+        if (next <= 0) {
+          const { [itemId]: _, ...rest } = prev;
+          return rest;
+        }
+
+        return { ...prev, [itemId]: next };
+      });
+
+      if (token) {
+        try {
+          await axios.post(
+            url + "/api/cart/delete",
+            { itemId },
+            { headers: { token } }
+          );
+        } catch (error) {
+          console.error("Delete from cart failed:", error);
+        }
+      }
+    },
+    [token]
+  );
 
   // useEffect(() => {
   //   console.log('Cart items updated:', cartItems);
@@ -72,7 +95,20 @@ const StoreContextProvider = (props) => {
       }
     };
 
+    const loadCartData = async (token) => {
+      try {
+        const response = await axios.get(url + "/api/cart/get", {
+          headers: { token },
+        });
+        setCartItems(response.data.cartData || {});
+      } catch (error) {
+        console.error("Failed to load cart data", error);
+      }
+    };
+
     fetchFoodList();
+
+    loadCartData(localStorage.getItem("token"));
 
     // Cleanup function runs when component unmounts
     return () => {
@@ -86,13 +122,13 @@ const StoreContextProvider = (props) => {
       cartItems,
       setCartItems,
       addToCart,
-      removeFromCart,
+      deleteFromCart,
       getTotalCartAmount,
       url,
       token,
       setToken,
     }),
-    [cartItems, addToCart, removeFromCart, getTotalCartAmount, token, foodList]
+    [cartItems, addToCart, deleteFromCart, getTotalCartAmount, token, foodList]
   );
 
   return (
