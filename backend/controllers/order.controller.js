@@ -38,9 +38,6 @@ const placeOrder = async (req, res) => {
     });
     await newOrder.save();
 
-    // Clear user's cart in DB (await so DB operation completes)
-    await userModel.findByIdAndUpdate(req.user.id, { cartData: {} });
-
     // Build Stripe line_items (note: Stripe expects snake_case keys)
     const line_items = items.map((item) => ({
       price_data: {
@@ -60,7 +57,7 @@ const placeOrder = async (req, res) => {
         product_data: {
           name: "Delivery charges",
         },
-        unit_amount: 2 * 100, // 2 SEK -> 200 öre
+        unit_amount: 20 * 100, // 2 SEK -> 200 öre
       },
       quantity: 1,
     });
@@ -81,4 +78,26 @@ const placeOrder = async (req, res) => {
   }
 };
 
-export { placeOrder };
+const verifyOrder = async (req, res) => {
+  const { orderId, success } = req.body;
+  try {
+    if (success === "true") {
+      await orderModel.findByIdAndUpdate(orderId, { payment: true });
+      // Clear user's cart in DB (await so DB operation completes)
+      await userModel.findByIdAndUpdate(req.user.id, { cartData: {} });
+      res.json({ success: true, message: "Paid" });
+    } else {
+      await orderModel.findByIdAndUpdate(orderId, {
+        payment: false,
+        status: "cancelled",
+      });
+      // await orderModel.findByIdAndDelete(orderId);
+      res.json({ success: false, message: "Not paid" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+export { placeOrder, verifyOrder };
