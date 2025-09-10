@@ -1,4 +1,4 @@
-import userModel from "../models/UserModel.js";
+import userModel from "../models/user.model.js";
 
 // add item to user cart
 const addToCart = async (req, res) => {

@@ -1,5 +1,5 @@
 import { error } from "console";
-import foodModel from "../models/FoodModel.js";
+import foodModel from "../models/food.model.js";
 import fs from "fs";
 import path from "path";
 
