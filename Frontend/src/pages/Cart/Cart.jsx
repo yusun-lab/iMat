@@ -70,7 +70,10 @@ const Cart = () => {
             </div>
           </div>
 
-          <button onClick={() => navigate("/order")}>
+          <button
+            onClick={() => navigate("/order")}
+            disabled={getTotalCartAmount() === 0 ? "disabled-btn" : ""}
+          >
             PROCEED TO CHECKOUT
           </button>
         </div>
