@@ -4,7 +4,7 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// place user order (frontend checkout)
+// Place user order (frontend checkout)
 const placeOrder = async (req, res) => {
   const frontendUrl = "http://localhost:5173";
 
@@ -57,7 +57,7 @@ const placeOrder = async (req, res) => {
         product_data: {
           name: "Delivery charges",
         },
-        unit_amount: 20 * 100, // 2 SEK -> 200 öre
+        unit_amount: 20 * 100, // 20 SEK -> 2000 öre
       },
       quantity: 1,
     });
@@ -71,13 +71,14 @@ const placeOrder = async (req, res) => {
     });
 
     // Return session url for frontend to redirect the user
-    res.json({ success: true, sessionUrl: session.url });
+    res.status(201).json({ success: true, sessionUrl: session.url });
   } catch (error) {
-    console.error("Place order error:", error);
-    res.status(500).json({ success: false, message: "Error placing order" });
+    console.error("❌ Place order error:", error);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
+// Verify payment status
 const verifyOrder = async (req, res) => {
   const { orderId, success } = req.body;
   try {
@@ -92,32 +93,32 @@ const verifyOrder = async (req, res) => {
         status: "Cancelled",
       });
       // await orderModel.findByIdAndDelete(orderId);
-      res.json({ success: false, message: "Not paid" });
+      return res.json({ success: false, message: "Not paid" });
     }
   } catch (error) {
-    console.error(error);
-    res.json({ success: false, message: "Error" });
+    console.error("❌ Verify order error:", error);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
-//user order for frontend
+// Get user orders
 const userOrders = async (req, res) => {
   try {
     const orders = await orderModel.find({ userId: req.user.id });
-    res.json({ success: true, data: orders });
+    res.status(200).json({ success: true, data: orders });
   } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: "Error" });
+    console.error("❌ User orders error:", error);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
-// Listing orders for admin panel
+// List all orders (admin panel)
 const listOrders = async (req, res) => {
   try {
     const orders = await orderModel.find({});
-    res.json({ success: true, data: orders });
+    res.status(200).json({ success: true, data: orders });
   } catch (error) {
-    console.log(error);
+    console.log("❌ List orders error:", error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
