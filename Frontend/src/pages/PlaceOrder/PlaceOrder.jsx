@@ -29,7 +29,7 @@ const PlaceOrder = () => {
   //   console.log(data);
   // }, [data]);
 
-  const placeOrder = async (event) => {
+  const handlePlaceOrder = async (event) => {
     event.preventDefault();
 
     let orderItems = foodList
@@ -63,7 +63,7 @@ const PlaceOrder = () => {
   };
 
   return (
-    <form onSubmit={placeOrder} className="place-order">
+    <form onSubmit={handlePlaceOrder} className="place-order">
       <div className="place-order-left">
         <p className="title">Devlivery Information</p>
 
