@@ -69,6 +69,7 @@ const PlaceOrder = () => {
 
         <div className="multi-fields">
           <input
+            required
             name="firstName"
             onChange={onChangeHandler}
             value={data.firstName}
@@ -76,6 +77,7 @@ const PlaceOrder = () => {
             placeholder="First name"
           />
           <input
+            required
             name="lastName"
             onChange={onChangeHandler}
             value={data.lastName}
@@ -85,6 +87,7 @@ const PlaceOrder = () => {
         </div>
 
         <input
+          required
           name="email"
           onChange={onChangeHandler}
           value={data.email}
@@ -93,6 +96,7 @@ const PlaceOrder = () => {
         />
 
         <input
+          required
           name="street"
           onChange={onChangeHandler}
           value={data.street}
@@ -102,6 +106,7 @@ const PlaceOrder = () => {
 
         <div className="multi-fields">
           <input
+            required
             name="municipality"
             onChange={onChangeHandler}
             value={data.municipality}
@@ -109,6 +114,7 @@ const PlaceOrder = () => {
             placeholder="Municipality"
           />
           <input
+            required
             name="county"
             onChange={onChangeHandler}
             value={data.county}
@@ -119,6 +125,7 @@ const PlaceOrder = () => {
 
         <div className="multi-fields">
           <input
+            required
             name="zipcode"
             onChange={onChangeHandler}
             value={data.zipcode}
@@ -126,6 +133,7 @@ const PlaceOrder = () => {
             placeholder="Zip code"
           />
           <input
+            required
             name="country"
             onChange={onChangeHandler}
             value={data.country}
@@ -135,6 +143,7 @@ const PlaceOrder = () => {
         </div>
 
         <input
+          required
           name="phone"
           onChange={onChangeHandler}
           value={data.phone}
