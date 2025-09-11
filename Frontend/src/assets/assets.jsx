@@ -8,6 +8,7 @@ import crossIcon from "./icons/close-circle-outline.svg";
 import profileIcon from "./icons/profile.svg";
 import orderIcon from "./icons/order.svg";
 import logoutIcon from "./icons/logout.svg";
+import parcelIcon from "./icons/parcel.svg";
 
 // Menu images
 import menu1Img from "./menuList/menu_1.png";
@@ -66,6 +67,7 @@ export const assets = {
   profileIcon,
   orderIcon,
   logoutIcon,
+  parcelIcon,
 };
 
 export function PlusIcon({

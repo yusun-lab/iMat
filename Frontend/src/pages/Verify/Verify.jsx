@@ -8,18 +8,22 @@ function Verify() {
   const [searchParams, setSearchparams] = useSearchParams();
   const success = searchParams.get("success");
   const orderId = searchParams.get("orderId");
-  const { url } = useContext(StoreContext);
+  const { url, token } = useContext(StoreContext);
   const navigate = useNavigate();
 
   // console.log(success, orderId);
 
   const verifyPayment = async () => {
-    const response = await axios.post(url + "/api/order/verify", {
-      success,
-      orderId,
-    });
+    const response = await axios.post(
+      url + "/api/order/verify",
+      {
+        success,
+        orderId,
+      },
+      { headers: { token } }
+    );
     if (response.data.success) {
-      navigate("myorders");
+      navigate("/my-orders");
     } else {
       navigate("/");
     }
