@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./NavBar.css";
 import { assets } from "../../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,6 +18,7 @@ const NavBar = ({ toggleLogin }) => {
       localStorage.removeItem("token");
       setToken("");
       navigate("/");
+      window.location.reload();
     }
   };
 

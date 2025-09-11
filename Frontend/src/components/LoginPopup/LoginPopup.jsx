@@ -42,6 +42,7 @@ const LoginPopup = ({ toggleLogin }) => {
         setToken(response.data.token);
         localStorage.setItem("token", response.data.token);
         toggleLogin(false);
+        window.location.reload();
       } else {
         // Backend returned success: false
         alert(response.data.message);
