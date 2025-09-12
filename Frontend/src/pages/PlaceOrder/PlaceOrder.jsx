@@ -126,7 +126,7 @@ const PlaceOrder = () => {
         <div className="multi-fields">
           <input
             required
-            name="postal code"
+            name="postalCode"
             onChange={onChangeHandler}
             value={data.postalCode}
             type="text"

@@ -2,6 +2,10 @@
   margin: 50px 0px;
 }
 
+.my-orders h2 {
+  text-align: center;
+}
+
 .my-orders__container {
   display: flex;
   flex-direction: column;

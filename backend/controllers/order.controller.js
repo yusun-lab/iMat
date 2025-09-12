@@ -6,7 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Place user order (frontend checkout)
 const placeOrder = async (req, res) => {
-  const frontendUrl = "http://localhost:5173";
+  const frontendUrl = "http://localhost:5174";
 
   try {
     // Pull fields from body
@@ -104,7 +104,9 @@ const verifyOrder = async (req, res) => {
 // Get user orders
 const userOrders = async (req, res) => {
   try {
-    const orders = await orderModel.find({ userId: req.user.id });
+    const orders = await orderModel
+      .find({ userId: req.user.id })
+      .sort({ date: -1 });
     res.status(200).json({ success: true, data: orders });
   } catch (error) {
     console.error("❌ User orders error:", error);
@@ -115,7 +117,7 @@ const userOrders = async (req, res) => {
 // List all orders (admin panel)
 const listOrders = async (req, res) => {
   try {
-    const orders = await orderModel.find({}).sort({ createdAt: -1 }); //Sort by time
+    const orders = await orderModel.find({}).sort({ date: -1 }); //Sort by time
     res.status(200).json({ success: true, data: orders });
   } catch (error) {
     console.log("❌ List orders error:", error);

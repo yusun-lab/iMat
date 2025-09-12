@@ -1,37 +1,35 @@
-import { React, useContext, useState, useEffect } from "react";
+import { React, useContext, useState, useEffect, useCallback } from "react";
 import "./MyOrders.css";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
 import { assets } from "../../assets/assets";
-import { useNavigate } from "react-router-dom";
 
 const MyOrders = () => {
   const { url, token } = useContext(StoreContext);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+
+  const fetchOrders = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(url + "/api/order/user-orders", {
+        headers: { token },
+      });
+      setData(response.data?.data || []);
+    } catch (err) {
+      setError("failed to fetch orders");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  }, [url, token]);
 
   useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(url + "/api/order/user-orders", {
-          headers: { token },
-        });
-        setData(response.data?.data || []);
-      } catch (err) {
-        setError("failed to fetch orders");
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     if (token) {
       fetchOrders();
     }
-  }, [token, url]);
+  }, [fetchOrders, token]);
 
   if (loading) return <p>Loading your orders...</p>;
   if (error) return <p style={{ color: "red" }}>{error}</p>;
@@ -45,7 +43,7 @@ const MyOrders = () => {
 
   return (
     <div className="my-orders">
-      <h2>My orders</h2>
+      <h2>My Orders</h2>
       <div className="my-orders__container">
         {data.map((order) => {
           return (
@@ -66,9 +64,7 @@ const MyOrders = () => {
                 </span>{" "}
                 <b>{order.status}</b>
               </p>
-              <button onClick={() => alert(`Tracking order: ${order._id}`)}>
-                Track Order{" "}
-              </button>
+              <button onClick={fetchOrders}>Track Order</button>
             </div>
           );
         })}
