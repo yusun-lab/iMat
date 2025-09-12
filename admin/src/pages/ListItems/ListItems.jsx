@@ -52,8 +52,8 @@ const ListItems = ({ url }) => {
   }, []);
 
   return (
-    <div className="list add flex-column">
-      <p>List of All Foods</p>
+    <div className="list flex-column">
+      <h3>List of All Foods</h3>
 
       {loading && <p>Loading...</p>}
 

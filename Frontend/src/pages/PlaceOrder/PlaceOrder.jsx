@@ -14,7 +14,7 @@ const PlaceOrder = () => {
     street: "",
     municipality: "",
     county: "",
-    zipcode: "",
+    postalCode: "",
     country: "",
     phone: "",
   });
@@ -126,11 +126,11 @@ const PlaceOrder = () => {
         <div className="multi-fields">
           <input
             required
-            name="zipcode"
+            name="postal code"
             onChange={onChangeHandler}
-            value={data.zipcode}
+            value={data.postalCode}
             type="text"
-            placeholder="Zip code"
+            placeholder="Postal code"
           />
           <input
             required

@@ -54,7 +54,7 @@ const MyOrders = () => {
 
               <p>
                 {order.items
-                  .map((item) => `${item.name}x${item.quantity}`)
+                  .map((item) => `${item.name}*${item.quantity}`)
                   .join(", ")}
               </p>
 
