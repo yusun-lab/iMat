@@ -115,7 +115,7 @@ const userOrders = async (req, res) => {
 // List all orders (admin panel)
 const listOrders = async (req, res) => {
   try {
-    const orders = await orderModel.find({});
+    const orders = await orderModel.find({}).sort({ createdAt: -1 }); //Sort by time
     res.status(200).json({ success: true, data: orders });
   } catch (error) {
     console.log("❌ List orders error:", error);
@@ -123,4 +123,35 @@ const listOrders = async (req, res) => {
   }
 };
 
-export { placeOrder, verifyOrder, userOrders, listOrders };
+// Update order status
+const updateStatus = async (req, res) => {
+  const { orderId, status } = req.body;
+  try {
+    if (!orderId || !status) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Order and status are required" });
+    }
+
+    const order = await orderModel.findByIdAndUpdate(
+      req.body.orderId,
+      {
+        status,
+      },
+      { new: true }
+    );
+
+    if (!order) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Order not found" });
+    }
+
+    res.json({ success: true, message: "Status Updated", data: order });
+  } catch (error) {
+    console.error("❌ Update status error:", error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export { placeOrder, verifyOrder, userOrders, listOrders, updateStatus };

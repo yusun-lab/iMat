@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useCallback } from "react";
 import "./Orders.css";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -7,24 +7,50 @@ import { assets } from "../../assets/assets";
 const Orders = ({ url }) => {
   const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    const fetchAllOrders = async () => {
-      try {
-        const response = await axios.get(url + "/api/order/list-orders");
-        if (response.data.success) {
-          setOrders(response.data.data);
-          console.log(response.data.data);
-        } else {
-          toast.error("Error fetching orders");
-        }
-      } catch (error) {
-        console.error("Error fetching orders:", error);
-        toast.error("Failed to fetch orders");
+  const fetchAllOrders = useCallback(async () => {
+    try {
+      const response = await axios.get(url + "/api/order/list-orders");
+      if (response.data.success) {
+        setOrders(response.data.data);
+        console.log(response.data.data);
+      } else {
+        toast.error("Error fetching orders");
       }
-    };
-
-    fetchAllOrders();
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+      toast.error("Failed to fetch orders");
+    }
   }, [url]);
+
+  useEffect(() => {
+    fetchAllOrders();
+  }, [fetchAllOrders]);
+
+  const statusHandler = async (event, orderId) => {
+    // console.log(event, orderId);
+
+    try {
+      const newStatus = event.target.value;
+      const response = await axios.post(url + "/api/order/update-status", {
+        orderId,
+        status: newStatus,
+      });
+
+      if (response.data.success) {
+        setOrders((prev) =>
+          prev.map((order) =>
+            order._id === orderId ? { ...order, status: newStatus } : order
+          )
+        );
+        toast.success("Order status updated");
+      } else {
+        toast.error("Failed to update status");
+      }
+    } catch (error) {
+      console.error("Status update error:", error);
+      toast.error("Error updating order status");
+    }
+  };
 
   return (
     <div className="orders flex-column">
@@ -66,7 +92,11 @@ const Orders = ({ url }) => {
 
               <p>SEK {order.amount}</p>
 
-              <select className="order-status">
+              <select
+                onChange={(event) => statusHandler(event, order._id)}
+                value={order.status}
+                className="order-status"
+              >
                 <option value="Order Processing">Order Processing</option>
                 <option value="Out for Delivery">Out for Delivery</option>
                 <option value="Delivered">Delivered</option>
