@@ -76,6 +76,7 @@
   display: none;
   right: 0;
   z-index: 1;
+  color: var(--main-blue);
 }
 
 .navbar-profile:hover .navbar-profile-dropdown {
@@ -105,6 +106,10 @@
 
 .navbar-profile-dropdown img {
   width: 1.5rem;
+}
+
+.navbar-profile-dropdown li p {
+  white-space: nowrap;
 }
 
 @media (max-width: 1023px) {

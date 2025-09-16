@@ -77,7 +77,7 @@ const NavBar = ({ toggleLogin }) => {
             <ul className="navbar-profile-dropdown">
               <li onClick={() => navigate("/my-orders")}>
                 <img src={assets.orderIcon} alt="" />
-                <p>Orders</p>
+                <p>My orders</p>
               </li>
 
               <hr />

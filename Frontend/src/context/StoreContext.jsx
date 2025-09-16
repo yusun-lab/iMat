@@ -35,7 +35,7 @@ const StoreContextProvider = (props) => {
         axios.post(url + "/api/cart/add", { itemId }, { headers: { token } });
       }
     },
-    [token]
+    [token, url]
   );
 
   const deleteFromCart = useCallback(
@@ -62,7 +62,7 @@ const StoreContextProvider = (props) => {
         }
       }
     },
-    [token]
+    [token, url]
   );
 
   // useEffect(() => {
