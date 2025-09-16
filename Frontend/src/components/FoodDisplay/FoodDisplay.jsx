@@ -4,13 +4,17 @@ import { StoreContext } from "../../context/StoreContext";
 import FoodItem from "../FoodItem/FoodItem";
 
 const FoodDisplay = ({ category }) => {
-  const { foodList } = useContext(StoreContext);
+  const { foodList, searchTerm } = useContext(StoreContext);
 
   console.log("Category:", category);
 
-  const visibleFoods = foodList.filter(
-    (item) => category === "All" || category === item.category
-  );
+  const visibleFoods = foodList.filter((item) => {
+    const matchesCategory = category === "All" || category === item.category;
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   console.log("Visible Foods:", visibleFoods);
 

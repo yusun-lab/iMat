@@ -53,6 +53,12 @@
   cursor: pointer;
 }
 
+.navbar-search-input {
+  padding: 5px 10px;
+  border: 1px solid var(--main-blue);
+  border-radius: 4px;
+}
+
 .navbar-cart-icon {
   position: relative;
 }

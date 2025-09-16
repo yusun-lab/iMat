@@ -27,6 +27,8 @@ const StoreContextProvider = (props) => {
 
   const [foodList, setFoodList] = useState([]);
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   const addToCart = useCallback(
     async (itemId) => {
       setCartItems((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
@@ -129,8 +131,19 @@ const StoreContextProvider = (props) => {
       url,
       token,
       setToken,
+      searchTerm,
+      setSearchTerm,
     }),
-    [cartItems, addToCart, deleteFromCart, getTotalCartAmount, token, foodList]
+    [
+      cartItems,
+      addToCart,
+      deleteFromCart,
+      getTotalCartAmount,
+      token,
+      foodList,
+      searchTerm,
+      url,
+    ]
   );
 
   return (
