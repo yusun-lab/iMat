@@ -31,7 +31,7 @@ const NavBar = ({ toggleLogin }) => {
         <img src={assets.logo} alt="logo" className="logo" />
       </Link>
 
-      <ul className="navbar-menu">
+      {/* <ul className="navbar-menu">
         <Link
           to="/"
           onClick={() => setMenuOpen("home")}
@@ -60,7 +60,7 @@ const NavBar = ({ toggleLogin }) => {
         >
           Contact us
         </a>
-      </ul>
+      </ul> */}
 
       <div className="navbar-right">
         <img

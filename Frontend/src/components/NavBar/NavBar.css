@@ -9,13 +9,13 @@
   width: 150px;
 }
 
-.navbar-menu {
+/* .navbar-menu {
   display: flex;
   gap: 20px;
   list-style: none;
   color: var(--main-blue);
   font-size: 1.2rem;
-}
+} */
 
 .navbar-right {
   display: flex;
