@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
 const NavBar = ({ toggleLogin }) => {
-  const [menuOpen, setMenuOpen] = useState("home");
+  // const [menuOpen, setMenuOpen] = useState("home");
 
   const { getTotalCartAmount, token, setToken, setSearchTerm } =
     useContext(StoreContext);
